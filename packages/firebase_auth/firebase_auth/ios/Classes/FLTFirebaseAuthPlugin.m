@@ -244,28 +244,28 @@ NSString *const kErrMsgInvalidCredential =
   }
 }
 
-#pragma mark - AppDelegate
+// #pragma mark - AppDelegate
 
-#if TARGET_OS_IPHONE
-- (BOOL)application:(UIApplication *)application
-    didReceiveRemoteNotification:(NSDictionary *)notification
-          fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
-  if ([[FIRAuth auth] canHandleNotification:notification]) {
-    completionHandler(UIBackgroundFetchResultNoData);
-    return YES;
-  }
-  return NO;
-}
+// #if TARGET_OS_IPHONE
+// - (BOOL)application:(UIApplication *)application
+//     didReceiveRemoteNotification:(NSDictionary *)notification
+//           fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+//   if ([[FIRAuth auth] canHandleNotification:notification]) {
+//     completionHandler(UIBackgroundFetchResultNoData);
+//     return YES;
+//   }
+//   return NO;
+// }
 
-- (void)application:(UIApplication *)application
-    didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-  [[FIRAuth auth] setAPNSToken:deviceToken type:FIRAuthAPNSTokenTypeUnknown];
-}
+// - (void)application:(UIApplication *)application
+//     didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+//   [[FIRAuth auth] setAPNSToken:deviceToken type:FIRAuthAPNSTokenTypeUnknown];
+// }
 
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options {
-  return [[FIRAuth auth] canHandleURL:url];
-}
-#endif
+// - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options {
+//   return [[FIRAuth auth] canHandleURL:url];
+// }
+// #endif
 
 #pragma mark - FLTFirebasePlugin
 
